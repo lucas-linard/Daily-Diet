@@ -1,12 +1,12 @@
-import { Container, Percentage, Subtitle, ArrowUp } from "./styles";
-
+import { Container, ArrowUp } from "./styles";
+import { Text } from "@components/Text";
 
 
 export function Percent() {
     return (
         <Container>
-            <Percentage>90,86%</Percentage>
-            <Subtitle>das refeições dentro da dieta</Subtitle>
+            <Text fontSize="XL4" fontFamily="BOLD">90,86%</Text>
+            <Text fontSize="SM">das refeições dentro da dieta</Text>
             <ArrowUp />
         </Container>
     );
