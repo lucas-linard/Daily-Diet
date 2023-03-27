@@ -9,7 +9,8 @@ import { ThemeProvider } from "styled-components/native";
 import theme from "./src/theme";
 
 import { Loading } from "@components/Loading";
-import Home from "@screens/Home";
+import { Routes } from "./src/routes";
+
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -19,8 +20,12 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar style="auto" />
-      {fontsLoaded ? <Home /> : <Loading /> }
+      <StatusBar 
+        style="dark"
+        backgroundColor="#fff"
+        translucent
+      />
+      {fontsLoaded ? <Routes /> : <Loading /> }
     </ThemeProvider>
   );
 }
