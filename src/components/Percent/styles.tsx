@@ -1,8 +1,18 @@
 import styled, { css } from "styled-components/native";
-
+import { IconProps } from "phosphor-react-native";
 import { ArrowUpRight } from "phosphor-react-native";
+import { Pressable } from "react-native";
 
-export const Container = styled.View`
+
+type PercentProps = {
+  healthy?: boolean;
+};
+
+type ArrowUpProps = IconProps & {
+healthy?: boolean;
+};
+ 
+export const Container = styled(Pressable)<PercentProps>`
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -16,13 +26,14 @@ export const Container = styled.View`
 
   border-radius: 8px;
 
-  background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
+  background-color: ${({ theme, healthy }) =>
+    healthy ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
 `;
 
-export const ArrowUp = styled(ArrowUpRight).attrs(({ theme }) => ({
-  color: theme.COLORS.GREEN_DARK,
+export const ArrowUp = styled(ArrowUpRight).attrs<ArrowUpProps>(({ theme, healthy }) => ({
+  color: healthy ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK,
   size: 24,
-}))`
+}))<ArrowUpProps>`
   position: absolute;
   top: 8px;
   right: 8px;
