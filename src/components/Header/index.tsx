@@ -1,13 +1,20 @@
-import { Container, Logo, Profile } from "./styles";
+import { Container, BackButton, ArrowLeftIcon } from "./styles";
 
-import LogoImage from '@assets/Logo.png';
-import ProfileImage from '@assets/Profile.png';
+import { Text } from "@components/Text";
 
-export function Header() {
-    return (
-        <Container>
-            <Logo source={LogoImage} />
-            <Profile source={ProfileImage} />
-        </Container>
-    );
+type HeaderProps = {
+  title: string;
+};
+export function Header({ title }: HeaderProps) {
+  return (
+    <Container>
+      <BackButton>
+        <ArrowLeftIcon />
+      </BackButton>
+
+      <Text fontFamily="BOLD" fontSize="LG">
+        {title}
+      </Text>
+    </Container>
+  );
 }

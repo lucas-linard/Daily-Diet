@@ -1,21 +1,26 @@
 import styled from "styled-components/native";
+import { ArrowLeft } from "phosphor-react-native";
+import { Pressable } from "react-native";
 
 export const Container = styled.View`
-    width: 100%;
-    flex-direction: row;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
-    align-items: center;
-    justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 24px;
+`;
 
-    margin-bottom: 35.89px;
-`
+//for some reason width: auto is taking all the space
+export const BackButton = styled(Pressable)`
+  position: absolute;
+  left: 24px;
+`;
 
-export const Logo = styled.Image`
-    width: 82px;
-    height: 37px;
-    `
-
-export const Profile = styled.Image`
-    width: 40px;
-    height: 40px;
-    `
+export const ArrowLeftIcon = styled(ArrowLeft).attrs(({ theme }) => {
+  return {
+    size: 24,
+    color: theme.COLORS.GRAY100,
+  };
+})``;
