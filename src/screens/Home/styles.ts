@@ -12,6 +12,20 @@ export const Container = styled(SafeAreaView)`
   
 `;
 
+export const Header = styled.View`
+    width: 100%;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 35.89px;
+`
+export const Profile = styled.Image`
+    width: 40px;
+    height: 40px;
+    `
+
 export const Text = styled.Text`
   ${({ theme }) => css`
     font-size: ${theme.FONT_SIZE.MD}px;
