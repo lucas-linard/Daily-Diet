@@ -32,7 +32,7 @@ export function Button({
       onPressOut={() => setIsActive(false)}
       active={isActive}
     >
-      {Icon && <PhosphorIcon color={COLORS.WHITE} size={24} />}
+      {Icon && <PhosphorIcon color={type === "SOLID" ? COLORS.WHITE : COLORS.GRAY100} size={24} />}
       <Text fontSize="SM" fontFamily="BOLD" color={type === "SOLID"? "WHITE" : "GRAY100"}>
         {title}
       </Text>
