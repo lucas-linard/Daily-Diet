@@ -4,7 +4,12 @@ import { Pressable } from "react-native";
 
 export type ButtonStyleProps = {
   fullWidth?: boolean;
+  active?: boolean;
+  type?: "SOLID" | "OUTLINE";
+
 };
+
+
 export const Container = styled(Pressable)<ButtonStyleProps>`
   flex-direction: row;
 
@@ -20,5 +25,16 @@ export const Container = styled(Pressable)<ButtonStyleProps>`
   padding: 16px 24px;
   gap: 12px;
 
-  background-color: ${({ theme }) => theme.COLORS.GRAY200};
+  background-color: ${({ theme, active, type }) => { 
+   switch (type) {
+    case "SOLID":
+      return active ? theme.COLORS.GRAY100 : theme.COLORS.GRAY200;
+   
+    case "OUTLINE":
+      return active ? theme.COLORS.WHITE : theme.COLORS.GRAY500;
+   
+    default:
+      break;
+   }
+  }};
 `;
