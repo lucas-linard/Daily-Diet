@@ -11,28 +11,31 @@ import {
 } from "./styles";
 
 import { Text } from "@components/Text";
+// the Button title could be more flexible, but for now it's ok
+type Props = ModalProps & {
+  title: string;
+  onCancel?: () => void;
+  onConfirm?: () => void;
+};
 
-export function Modal({...rest}: ModalProps) {
+export function Modal({ title, onCancel, onConfirm, ...rest }: Props) {
   return (
     <ModalWrapper {...rest}>
       <ModalBackground>
         <ModalContainer>
-
           <ModalHeader>
             <Text
               fontFamily="BOLD"
               fontSize="LG"
               style={{ textAlign: "center" }}
             >
-              Deseja realmente excluir o registro da refeição?
+              {title}
             </Text>
           </ModalHeader>
-
           <ModalOptions>
-            <Button type="OUTLINE" title="Cancelar" />
-            <Button title="Sim, excluir" />
+            <Button type="OUTLINE" title="Cancelar" onPress={onCancel} />
+            <Button title="Sim, excluir" onPress={onConfirm} />
           </ModalOptions>
-
         </ModalContainer>
       </ModalBackground>
     </ModalWrapper>
