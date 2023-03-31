@@ -3,7 +3,7 @@ import { PressableProps } from "react-native";
 import { useTheme } from "styled-components/native";
 
 import { Text } from "@components/Text";
-import { Container } from "./style";
+import { Container, Wrapper } from "./style";
 import { ButtonStyleProps } from "./style";
 
 type Props = ButtonStyleProps &
@@ -24,6 +24,7 @@ export function Button({
   const PhosphorIcon = require("phosphor-react-native")[Icon || "Plus"];
 
   return (
+    <Wrapper>
     <Container
       fullWidth={fullWidth}
       {...rest}
@@ -37,5 +38,6 @@ export function Button({
         {title}
       </Text>
     </Container>
+    </Wrapper>
   );
 }
