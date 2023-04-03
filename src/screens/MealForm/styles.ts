@@ -36,16 +36,3 @@ export const EndBox = styled.View`
 
   margin-bottom: 20px;
 `;
-
-export const DateTimeBox = styled(Pressable)`
-  flex: 1;
-
-  min-height: 70px;
-  /* por conta do flex ele esta crescendo o maximo que pode */
-  max-height: 58px;
-
-  border: 1px solid ${({ theme }) => theme.COLORS.GRAY500};
-  border-radius: 6px;
-
-  gap: 4px;
-`;
