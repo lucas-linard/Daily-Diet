@@ -3,9 +3,11 @@ import { Container, Button ,Circle } from "./styles";
 import { SelectTypeStyleProps } from "./styles";
 import { Text } from "@components/Text";
 
+type SelectType = 'YES' | 'NO';
+
 type Props = {
-  value: string,
-  onChange: (value: string) => void
+  value: SelectType,
+  onChange: (value: SelectType) => void
 };
 
 export function Select({value, onChange}: Props) {
@@ -15,7 +17,7 @@ export function Select({value, onChange}: Props) {
     setSelectedButton(value);
   }, [value]);
 
-  const handleButtonPress = (buttonType: string) => {
+  const handleButtonPress = (buttonType: SelectType) => {
     setSelectedButton(buttonType);
     onChange(buttonType);
   }
