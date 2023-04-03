@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
-import { TextInput } from "react-native";
+import { TextInput , ScrollView} from "react-native";
 import { useForm, Controller } from "react-hook-form";
-
 import { Container, Card, RowBox, EndBox } from "./styles";
 
 import { Header } from "@components/Header";
@@ -72,6 +71,10 @@ export function MealForm() {
   }
 
   return (
+      <ScrollView contentContainerStyle={{
+        flexGrow: 1,
+      
+      }}>
     <Container edges={["top", "left", "right"]}>
       <Header title="Nova refeição" />
       <Card>
@@ -195,5 +198,6 @@ export function MealForm() {
         </EndBox>
       </Card>
     </Container>
+    </ScrollView>
   );
 }
