@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import { Pressable } from "react-native";
 
 export const Container = styled(SafeAreaView)`
   flex: 1;
@@ -23,10 +23,10 @@ export const Card = styled.View`
 `;
 
 export const RowBox = styled.View`
-    flex-direction: row;
-    width: 100%;
-    gap: 28px;
-`
+  flex-direction: row;
+  width: 100%;
+  gap: 28px;
+`;
 
 export const EndBox = styled.View`
   flex: 1;
@@ -35,4 +35,17 @@ export const EndBox = styled.View`
   justify-content: flex-end;
 
   margin-bottom: 20px;
-`
+`;
+
+export const DateTimeBox = styled(Pressable)`
+  flex: 1;
+
+  min-height: 70px;
+  /* por conta do flex ele esta crescendo o maximo que pode */
+  max-height: 58px;
+
+  border: 1px solid ${({ theme }) => theme.COLORS.GRAY500};
+  border-radius: 6px;
+
+  gap: 4px;
+`;
