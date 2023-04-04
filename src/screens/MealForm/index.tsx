@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { TextInput , ScrollView} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
 import { Container, Card, RowBox, EndBox } from "./styles";
 
@@ -19,6 +20,7 @@ type FormData = {
 };
 
 export function MealForm() {
+  const navigation = useNavigation();
   const {
     control,
     watch,
@@ -36,7 +38,6 @@ export function MealForm() {
 
   const watchDate = watch("date");
   const watchTime = watch("time");
-
   const nameInputRef = useRef<TextInput>(null);
   const [isDatePickerVisible, setDatePickerVisibility] = useState({
     date: false,
@@ -57,7 +58,7 @@ export function MealForm() {
   }
 
   function handleSubmitForm(data: any) {
-    console.log(data);
+    navigation.navigate("Feedback");
   }
 
   function handleDatePress(value: "date" | "time") {
