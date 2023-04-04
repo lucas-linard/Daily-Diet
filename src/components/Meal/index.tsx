@@ -1,9 +1,10 @@
-import { Container, Dot, TextContainer } from "./styles";
+import { PressableProps } from "react-native";
+import { Container, Dot } from "./styles";
 import { Text } from "@components/Text";
 
-export function Meal() {
+export function Meal({...rest} : PressableProps) {
   return (
-    <Container>
+    <Container {...rest}>
       <Text>20:00</Text>
       <Text color="GRAY400" fontSize="SM">
         |
