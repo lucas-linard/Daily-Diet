@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { Container, ContainerItem, Card, Tag, Dot, EndBox } from "./styles";
 import { Text } from "@components/Text";
 import { Header } from "@components/Header";
@@ -5,6 +6,16 @@ import { Button } from "@components/Button";
 import { Modal } from "@components/Modal";
 
 export default function Details() {
+  const navigation = useNavigation();
+
+  function handleEditMeal() {
+    navigation.navigate("MealForm");
+  }
+
+  function handleDeleteMeal() {
+    navigation.navigate("Home");
+  }
+
   return (
     <Container type="HEALTHY" edges={["top", "left", "right"]}>
       <Header title="Refeição" />
@@ -28,12 +39,18 @@ export default function Details() {
           <Text fontSize="SM">dentro da dieta</Text>
         </Tag>
         <EndBox>
-          <Button Icon="PencilSimpleLine" fullWidth title="Editar refeição" />
+          <Button
+            Icon="PencilSimpleLine"
+            title="Editar refeição"
+            fullWidth
+            onPress={handleEditMeal}
+          />
           <Button
             type="OUTLINE"
             Icon="Trash"
-            fullWidth
             title="Excluir refeição"
+            fullWidth
+            onPress={handleDeleteMeal}
           />
         </EndBox>
       </Card>
