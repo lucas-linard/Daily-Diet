@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { Container } from "./styles";
 
 import { Positive, Negative } from "@components/Feedback";
@@ -30,7 +31,12 @@ const NegativeText = () => (
 );
 
 export default function Feedback() {
+  const navigation = useNavigation();
   let feedback = "NEGATIVE";
+
+  function handleNavigateToHome() {
+    navigation.navigate("Home");
+  }
 
   return (
     <Container>
@@ -40,7 +46,11 @@ export default function Feedback() {
       ) : (
         <Positive style={{ marginTop: 40 }} />
       )}
-      <Button title="Ir para a página inicial" style={{ marginTop: 32 }} />
+      <Button
+        title="Ir para a página inicial"
+        style={{ marginTop: 32 }}
+        onPress={handleNavigateToHome}
+      />
     </Container>
   );
 }
