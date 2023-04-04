@@ -37,8 +37,13 @@ export const Box = styled.View`
 `
 
 export const BackButton = styled(Pressable)`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  
   width: auto;
   height: auto;
+
 `
 
 export const BackIcon = styled(ArrowLeft).attrs<ArrowUpProps>(({ theme, healthy }) => ({

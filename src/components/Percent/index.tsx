@@ -26,11 +26,9 @@ export function Percent({
   return (
     <Container healthy={healthy} {...rest}>
       {showBackButton ? (
-        <Box>
           <BackButton onPress={navigation.goBack}>
             <BackIcon healthy={healthy} />
           </BackButton>
-        </Box>
       ) : (
         <ArrowUpRightIcon healthy={healthy} />
       )}
