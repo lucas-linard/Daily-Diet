@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components/native";
+import { Pressable } from "react-native";
 import { IconProps } from "phosphor-react-native";
 import { ArrowUpRight } from "phosphor-react-native";
 import { ArrowLeft } from "phosphor-react-native";
 
-import { Pressable } from "react-native";
 
 
 type PercentProps = {
@@ -34,6 +34,11 @@ export const Container = styled(Pressable)<PercentProps>`
 export const Box = styled.View`
   width: 100%;
   flex-direction: row;
+`
+
+export const BackButton = styled(Pressable)`
+  width: auto;
+  height: auto;
 `
 
 export const BackIcon = styled(ArrowLeft).attrs<ArrowUpProps>(({ theme, healthy }) => ({

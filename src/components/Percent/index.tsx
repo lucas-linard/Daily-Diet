@@ -1,5 +1,12 @@
 import { PressableProps } from "react-native";
-import { Container, Box, ArrowUpRightIcon, BackIcon } from "./styles";
+import { useNavigation } from "@react-navigation/native";
+import {
+  Container,
+  Box,
+  ArrowUpRightIcon,
+  BackIcon,
+  BackButton,
+} from "./styles";
 
 import { Text } from "@components/Text";
 
@@ -15,11 +22,14 @@ export function Percent({
   showBackButton = false,
   ...rest
 }: PercentProps) {
+  const navigation = useNavigation();
   return (
     <Container healthy={healthy} {...rest}>
       {showBackButton ? (
         <Box>
-          <BackIcon healthy={healthy} />
+          <BackButton onPress={navigation.goBack}>
+            <BackIcon healthy={healthy} />
+          </BackButton>
         </Box>
       ) : (
         <ArrowUpRightIcon healthy={healthy} />
