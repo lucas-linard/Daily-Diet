@@ -62,7 +62,7 @@ export function MealForm() {
     return dataTime <= new Date();
   }
 
-  async function handleSubmitForm(data: MealType) {
+  async function handleSubmitForm(data: FormData) {
     const hours = watchTime.getHours();
     const minutes = watchTime.getMinutes();
     const seconds = watchTime.getSeconds();
