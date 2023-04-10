@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { isOnDietSelectType } from ".";
+import { isOnDietSelectType } from "src/@types/Meal";
 import { Pressable } from "react-native";
 
 type DotStyleProps = {
