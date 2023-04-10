@@ -15,7 +15,7 @@ const removeMealAndCleanSections = (
   }, []);
 };
 
-export async function mealDeleteById() {
+export async function mealDeleteById(id: string) {
   try {
     const storedMeals = await AsyncStorage.getItem(MEAL_COLLECTION);
     if (storedMeals !== null) {
@@ -23,7 +23,7 @@ export async function mealDeleteById() {
 
       let newStorage = removeMealAndCleanSections(
         storage,
-        storage[0].data[0].id
+        id
       );
       await AsyncStorage.setItem(MEAL_COLLECTION, JSON.stringify(newStorage));
     }
