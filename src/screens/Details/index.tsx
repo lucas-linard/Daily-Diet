@@ -1,42 +1,51 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import moment from "moment";
 import { Container, ContainerItem, Card, Tag, Dot, EndBox } from "./styles";
 import { Text } from "@components/Text";
 import { Header } from "@components/Header";
 import { Button } from "@components/Button";
 import { Modal } from "@components/Modal";
+import { mealDeleteById } from "@storage/meal/mealDeleteById";
+import { MealType } from "src/@types/Meal";
 
 export default function Details() {
   const navigation = useNavigation();
+  const route  = useRoute();
+  const params = route.params as MealType;
+  const type = params.isOnDiet === "YES" ?  'EDIT-ON-DIET' : 'EDIT-OFF-DIET';  
+
+  const formattedDate = moment(params.date).format('DD/MM/YYYY HH:mm');
 
   function handleEditMeal() {
-    navigation.navigate("MealForm");
+    navigation.navigate("MealForm", { type, ...params });
   }
 
-  function handleDeleteMeal() {
+  async function handleDeleteMeal() {
+    await mealDeleteById(params.id);
     navigation.navigate("Home");
   }
 
   return (
-    <Container type="HEALTHY" edges={["top", "left", "right"]}>
+    <Container type={type} edges={["top", "left", "right"]}>
       <Header title="Refeição" />
       <Card>
         <ContainerItem style={{ marginTop: 16 }}>
           <Text fontFamily="BOLD" fontSize="XL">
-            Sanduíche
+            {params.name}
           </Text>
-          <Text>
-            Sanduíche de pão integral com atum e salada de alface e tomate
-          </Text>
+          <Text>{params.description}</Text>
         </ContainerItem>
         <ContainerItem>
           <Text fontFamily="BOLD" fontSize="SM">
             Data e hora
           </Text>
-          <Text>12/12/2020 12:00</Text>
+          <Text>{formattedDate}</Text>
         </ContainerItem>
         <Tag>
-          <Dot />
-          <Text fontSize="SM">dentro da dieta</Text>
+          <Dot isOnDiet={params.isOnDiet}/>
+          <Text fontSize="SM">
+            {params.isOnDiet === "YES" ? "dentro da dieta" : "fora da dieta" }
+            </Text>
         </Tag>
         <EndBox>
           <Button

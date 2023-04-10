@@ -1,13 +1,26 @@
 import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Pressable } from "react-native";
+import { MealFormType } from "src/@types/Meal";
 
-export const Container = styled(SafeAreaView)`
+type containerProps = {
+  type: MealFormType;
+}
+
+export const Container = styled(SafeAreaView)<containerProps>`
   flex: 1;
 
   align-items: center;
 
-  background-color: ${({ theme }) => theme.COLORS.GRAY500};
+  background-color: ${({ theme, type }) => {
+    switch (type) {
+      case "NEW":
+        return theme.COLORS.GRAY500;
+      case "EDIT-ON-DIET":
+        return theme.COLORS.GREEN_LIGHT;
+      case "EDIT-OFF-DIET":
+        return theme.COLORS.RED_LIGHT;
+    }
+  }};
 `;
 
 export const Card = styled.View`

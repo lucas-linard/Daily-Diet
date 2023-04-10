@@ -1,18 +1,21 @@
 import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Modal } from "react-native";
-
+import { isOnDietSelectType } from "src/@types/Meal";
+import { MealFormType } from "src/@types/Meal";
 type ContainerStyleProps = {
-  type: "HEALTHY" | "UNHEALTHY";
+  type: MealFormType;
 };
 
+type DotStyleProps = {
+  isOnDiet: isOnDietSelectType;
+};
 export const Container = styled(SafeAreaView)<ContainerStyleProps>`
   flex: 1;
 
   align-items: center;
 
   background-color: ${({ theme, type }) =>
-    type === "HEALTHY" ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
+    type === "EDIT-ON-DIET" ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
 `;
 
 export const Card = styled.View`
@@ -49,12 +52,13 @@ export const Tag = styled.View`
   background-color: ${({ theme }) => theme.COLORS.GRAY600};
 `;
 
-export const Dot = styled.View`
+export const Dot = styled.View<DotStyleProps>`
   height: 8px;
   width: 8px;
   border-radius: 1000px;
 
-  background-color: ${({ theme }) => theme.COLORS.GREEN_DARK};
+  background-color: ${({ theme, isOnDiet }) =>
+    isOnDiet === "YES" ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
 `;
 
 export const EndBox = styled.View`

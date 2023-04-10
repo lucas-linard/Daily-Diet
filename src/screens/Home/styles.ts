@@ -37,5 +37,3 @@ export const Box = styled.View`
     width: 100%;
     gap: 8px;
 `;
-
-export const List = styled(SectionList)``;
