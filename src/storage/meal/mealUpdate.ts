@@ -38,7 +38,6 @@ export async function mealUpdate(meal: MealType) {
           const indexOfSection = storedMeals.findIndex(
             (item: any) => item.title === mealSection
           );
-          console.log(indexOfSection);
           //se encontrou a section, insere o meal
           if (indexOfSection !== -1) {
             storedMeals[indexOfSection].data.push(meal);
