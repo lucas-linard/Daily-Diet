@@ -4,7 +4,7 @@ import { ContainerStyleProps } from "./styles";
 import { Text } from "@components/Text";
 
 type ContainerProps = ContainerStyleProps & {
-    title: string;
+    title: number | string;
     subtitle: string;
 }
 
