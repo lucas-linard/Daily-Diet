@@ -18,13 +18,14 @@ const countIsOnDiet = (array: MealSectionType[]) => {
 export async function mealGetSuccessPercentage() {
   try {
     const storedMeals = await AsyncStorage.getItem(MEAL_COLLECTION);
-    if (storedMeals !== null) {
+    if (storedMeals !== '[]' && storedMeals !== null) {
       const storage = JSON.parse(storedMeals);
       // Total items in the array
       const onDietCount = countIsOnDiet(storage);
       return parseFloat(((onDietCount.isOnDietCount / onDietCount.totalItems) * 100).toFixed(2));  
      
     }
+    return 0;
   } catch (error) {
     throw error;
   }
