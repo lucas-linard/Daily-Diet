@@ -85,22 +85,22 @@ export default function Home() {
         />
       </Box>
       <Box style={{ marginTop: 32 }}></Box>
-      {/* MaskedView ta limitando a List */}
       <MaskedView
         maskElement={
           <LinearGradient
-            start={{ x: 0.0, y: 0.3 }}
+            start={{ x: 0.0, y: 0.8 }}
             end={{ x: 0.0, y: 1 }}
-            colors={[COLORS.WHITE, "#FFFFFF00", "#FFFFFF00"]}
+            colors={[COLORS.WHITE, "#FFFFFF00"]}
             style={{ flex: 1 }}
           />
         }
+        style={{ flex: 1 }}
       >
         <SectionList
           sections={meals}
           keyExtractor={(item) => item.id}
           renderSectionHeader={({ section: { title } }) => (
-            <Text fontFamily="BOLD" fontSize="LG">
+            <Text fontFamily="BOLD" fontSize="LG" style={{marginBottom: 8}}>
               {title}
             </Text>
           )}
