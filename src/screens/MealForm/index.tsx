@@ -2,8 +2,8 @@ import { useState, useRef } from "react";
 import { TextInput, ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
-import "react-native-get-random-values";
-import { v4 as uuidv4 } from "uuid";
+import uuid from 'react-native-uuid';
+
 import { Container, Card, RowBox, EndBox } from "./styles";
 
 import { MealType } from "src/@types/Meal";
@@ -32,7 +32,7 @@ export function MealForm() {
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
-      id: params.id || uuidv4(),
+      id: params.id || uuid.v4().toString(),
       name: params.name || "",
       description: params.description || "",
       isOnDiet: params.isOnDiet || "YES",

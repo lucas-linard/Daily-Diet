@@ -23,7 +23,6 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <StatusBar 
         style="dark"
-        backgroundColor="#fff"
         translucent
       />
       {fontsLoaded ? <Routes /> : <Loading /> }
