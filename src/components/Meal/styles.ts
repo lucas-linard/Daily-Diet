@@ -9,7 +9,7 @@ export const Container = styled(Pressable)`
   flex-direction: row;
   align-items: center;
 
-  height: 49px;
+  height: 51px;
   width: 100%;
 
   padding: 14px 16px;
