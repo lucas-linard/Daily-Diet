@@ -12,25 +12,24 @@ import { Text } from "@components/Text";
 
 type PercentProps = PressableProps & {
   percent: number;
-  healthy?: boolean;
   showBackButton?: boolean;
 };
 
 export function Percent({
   percent,
-  healthy = true,
   showBackButton = false,
   ...rest
 }: PercentProps) {
   const navigation = useNavigation();
+  const isHealthy = percent >= 65;
   return (
-    <Container healthy={healthy} {...rest}>
+    <Container healthy={isHealthy} {...rest}>
       {showBackButton ? (
           <BackButton onPress={navigation.goBack}>
-            <BackIcon healthy={healthy} />
+            <BackIcon healthy={isHealthy} />
           </BackButton>
       ) : (
-        <ArrowUpRightIcon healthy={healthy} />
+        <ArrowUpRightIcon healthy={isHealthy} />
       )}
       <Text fontSize="XL4" fontFamily="BOLD">
         {percent}%

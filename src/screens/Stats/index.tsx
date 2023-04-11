@@ -20,7 +20,7 @@ export default function Stats() {
   const { percent } = route.params as RouteParams;
   const [stats, setStats] = useState<MealStats>({} as MealStats);
   const insets = useSafeAreaInsets();
-
+  const isHealthy = percent >= 65;
   async function GetStats() {
     try {
       const data = await mealGetStats();
@@ -37,7 +37,7 @@ export default function Stats() {
 
   return (
     <Container
-      healthy={true}
+      healthy={isHealthy}
       style={{
         paddingTop: insets.top,
         paddingLeft: insets.left,
