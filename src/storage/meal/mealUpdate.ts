@@ -29,8 +29,8 @@ export async function mealUpdate(meal: MealType) {
       const indexes = findIndexes(meal.id, storedMeals);
       if (indexes) {
         if (storedMeals[indexes.sectionIndex].title !== mealSection) {
-          storedMeals[indexes.sectionIndex].data.length === 1
           //deleta o meal ou a section inteira se for o único meal
+          storedMeals[indexes.sectionIndex].data.length === 1
             ? storedMeals.splice(indexes.sectionIndex, 1) //  ✅
             : storedMeals[indexes.sectionIndex].data.splice(indexes.mealIndex, 1);//  ✅
 
@@ -40,13 +40,41 @@ export async function mealUpdate(meal: MealType) {
           );
           //se encontrou a section, insere o meal
           if (indexOfSection !== -1) {
-            storedMeals[indexOfSection].data.push(meal);
+            //modificar aqui
+            const indexToInsert = storedMeals[indexOfSection].data.findIndex(
+              (item) => meal.date.getTime() > new Date(item.date).getTime()
+            );
+            storedMeals[indexOfSection].data.splice(indexToInsert, 0, meal);
           } else {
             //se não encontrou a section, cria a section e insere o meal
-            storedMeals.push({ title: mealSection, data: [meal] });
+            const indexToInsertSection = storedMeals.findIndex(
+              (item) =>
+                new Date(meal.date).getTime() >
+                new Date(
+                  item.title.split("/").reverse().join("-") + "T00:00:00-03:00"
+                ).getTime()
+            );
+            if (indexToInsertSection !== -1) {
+              storedMeals.splice(indexToInsertSection, 0, {
+                title: mealSection,
+                data: [meal],
+              });
+            } else {
+              storedMeals.push({ title: mealSection, data: [meal] });
+            }
           }
         } else {
-          storedMeals[indexes.sectionIndex].data[indexes.mealIndex] = meal;
+          storedMeals[indexes.sectionIndex].data.splice(indexes.mealIndex, 1)
+
+          const indexToInsert = storedMeals[indexes.sectionIndex].data.findIndex(
+            (item) => new Date(meal.date).getTime() > new Date(item.date).getTime()
+          );
+          if(indexToInsert !== -1){
+            storedMeals[indexes.sectionIndex].data.splice(indexToInsert, 0, meal);
+          } else {   
+            storedMeals[indexes.sectionIndex].data.push(meal);
+          }
+          //storedMeals[indexes.sectionIndex].data[indexes.mealIndex] = meal;
         }
         await AsyncStorage.setItem(
           MEAL_COLLECTION,
