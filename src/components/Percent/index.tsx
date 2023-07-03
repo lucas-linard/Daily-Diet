@@ -13,11 +13,13 @@ import { Text } from "@components/Text";
 type PercentProps = PressableProps & {
   percent: number;
   showBackButton?: boolean;
+  subtitle?: string;
 };
 
 export function Percent({
   percent,
   showBackButton = false,
+  subtitle,
   ...rest
 }: PercentProps) {
   const navigation = useNavigation();
@@ -34,7 +36,7 @@ export function Percent({
       <Text fontSize="XL4" fontFamily="BOLD">
         {percent}%
       </Text>
-      <Text fontSize="SM">das refeições dentro da dieta</Text>
+      <Text fontSize="SM">{subtitle}</Text>
     </Container>
   );
 }

@@ -5,6 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import MaskedView from "@react-native-masked-view/masked-view";
 import { useTheme } from "styled-components/native";
 import { SectionList } from "react-native";
+import { useTranslation } from "react-i18next";
 
 import { Container, Header, Profile, Box } from "./styles";
 
@@ -20,6 +21,7 @@ import { useState, useCallback } from "react";
 
 export default function Home() {
   const navigation = useNavigation();
+  const { t, i18n } = useTranslation();
   const insets = useSafeAreaInsets();
   const { COLORS } = useTheme();
   const [meals, setMeals] = useState([]);
@@ -73,12 +75,12 @@ export default function Home() {
         <Profile source={ProfileImage} />
       </Header>
       <SharedElement style={{ width: "100%" }} id="percent">
-        <Percent percent={percentage} onPress={handleNavigateToStats} />
+        <Percent subtitle={t('Common:OnDietPercentage')} percent={percentage} onPress={handleNavigateToStats} />
       </SharedElement>
       <Box style={{ marginTop: 40 }}>
-        <Text>Refeições</Text>
+        <Text>{t('Common:Meals')}</Text>
         <Button
-          title="Nova refeição"
+          title={t('Common:NewMeal')}
           Icon="Plus"
           fullWidth
           onPress={handleNewMeal}
@@ -113,7 +115,7 @@ export default function Home() {
               onPress={() => handleNavigateToDetails(item)}
             />
           )}
-          ListEmptyComponent={() => <Text>Nenhuma refeição encontrada</Text>}
+          ListEmptyComponent={() => <Text>{t('Feedback:NoMealsYet')}</Text>}
         />
       </MaskedView>
     </Container>

@@ -7,4 +7,5 @@ export const Container = styled(SafeAreaView)`
     justify-content: center;
 
     background-color: ${({ theme }) => theme.COLORS.WHITE};
-`
+    padding: 0 36px;
+` 

@@ -16,9 +16,11 @@ type Props = ModalProps & {
   title: string;
   onCancel?: () => void;
   onConfirm?: () => void;
+  ConfirmButtonTitle?: string;
+  CancelButtonTitle?: string;
 };
 
-export function Modal({ title, onCancel, onConfirm, ...rest }: Props) {
+export function Modal({ title, onCancel, onConfirm, ConfirmButtonTitle, CancelButtonTitle, ...rest }: Props) {
   return (
     <ModalWrapper {...rest}>
       <ModalBackground>
@@ -33,8 +35,8 @@ export function Modal({ title, onCancel, onConfirm, ...rest }: Props) {
             </Text>
           </ModalHeader>
           <ModalOptions>
-            <Button type="OUTLINE" title="Cancelar" onPress={onCancel} />
-            <Button title="Sim, excluir" onPress={onConfirm} />
+            <Button type="OUTLINE" title={CancelButtonTitle} onPress={onCancel} />
+            <Button title={ConfirmButtonTitle} onPress={onConfirm} />
           </ModalOptions>
         </ModalContainer>
       </ModalBackground>

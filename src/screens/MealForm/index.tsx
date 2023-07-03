@@ -3,7 +3,7 @@ import { TextInput, ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
 import uuid from 'react-native-uuid';
-
+import { useTranslation } from "react-i18next";
 import { Container, Card, RowBox, EndBox } from "./styles";
 
 import { MealType } from "src/@types/Meal";
@@ -24,6 +24,7 @@ type FormData = MealType & {
 export function MealForm() {
   const navigation = useNavigation();
   const route = useRoute();
+  const {t, i18n} = useTranslation();
   const params = route.params as FormData;
   const {
     control,
@@ -93,7 +94,7 @@ export function MealForm() {
     >
       <Container type={params.type} edges={["top", "left", "right"]}>
         <Header
-          title={params.type === "NEW" ? "Refeição" : "Editar refeição"}
+          title={params.type === "NEW" ? t('Common:Meal') : t('Common:EditMeal')}
         />
         <Card>
           <Controller
@@ -106,7 +107,7 @@ export function MealForm() {
               <>
                 <Input
                   inputRef={nameInputRef}
-                  label="Nome"
+                  label={t('Forms:Name')}
                   value={value}
                   onChangeText={onChange}
                 />
@@ -120,7 +121,7 @@ export function MealForm() {
               color="RED_DARK"
               style={{ marginTop: -15 }}
             >
-              Preencha o nome da sua refeição*
+              {t('Forms:Error.Name')}
             </Text>
           )}
           <Controller
@@ -132,7 +133,7 @@ export function MealForm() {
             }}
             render={({ field: { onChange, value } }) => (
               <Input
-                label="Descrição"
+                label={t('Forms:Description')}
                 value={value}
                 onChangeText={onChange}
                 numberOfLines={3}
@@ -151,7 +152,7 @@ export function MealForm() {
                 <DateTimePicker
                   isVisible={isDatePickerVisible.date}
                   onPress={() => handleDatePress("date")}
-                  label="Data"
+                  label={t('Forms:Date')}
                   value={value}
                   maximumDate={new Date()}
                   mode="date"
@@ -175,7 +176,7 @@ export function MealForm() {
                 <DateTimePicker
                   isVisible={isDatePickerVisible.time}
                   onPress={() => handleDatePress("time")}
-                  label="Hora"
+                  label={t('Forms:Time')}
                   value={value}
                   mode="time"
                   onConfirm={(e) => {
@@ -194,7 +195,7 @@ export function MealForm() {
               color="RED_DARK"
               style={{ marginTop: -5 }}
             >
-              Informe uma data/hora valida!
+              {t('Forms:Error.DateAndTime')}
             </Text>
           )}
           <Controller
@@ -211,8 +212,8 @@ export function MealForm() {
             <Button
               title={
                 params.type === "NEW"
-                  ? "Cadastrar refeição"
-                  : "Salvar alterações"
+                  ? t('Button:Meal.Save')
+                  : t('Button:SaveChanges')
               }
               fullWidth
               onPress={handleSubmit(handleSubmitForm)}

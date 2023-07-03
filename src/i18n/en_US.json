@@ -1,0 +1,61 @@
+{
+  "Common": {
+    "Meal": "Meal",
+    "Meals": "Meals",
+    "NewMeal": "New meal",
+    "EditMeal": "Edit meal",
+    "OnDietPercentage": "of meals on diet",
+    "Yes": "Yes",
+    "No": "No",
+    "OnDiet" : "On diet",
+    "OffDiet" : "Off diet"
+  },
+  "Button": {
+    "GoToHomePage": "Go to home page",
+    "Meal": {
+      "Save": "Log meal",
+      "Edit": "Edit meal",
+      "Delete": "Delete meal"
+    },
+    "SaveChanges": "Save changes",
+    "Cancel": "Cancel",
+    "DeleteConfirmation": "Yes, Delete"
+  },
+  "Stats": {
+    "GeneralStats": "General stats",
+    "BestStreak": "Best streak of meals on diet",
+    "Tracked": "Tracked meals",
+    "OnDiet": "On diet meals",
+    "OffDiet": "Off diet meals"
+  },
+  "Forms": {
+    "Name": "Name",
+    "Description": "Description",
+    "Date": "Date",
+    "Time": "Time",
+    "DateAndTime": "Date and time",
+    "MealType": "Is On diet?",
+    "Error": {
+      "Name": "Name is required",
+      "DateAndTime": "Select a valid date and time",
+      "Time": "Time is required",
+      "MealType": "Meal type is required"
+    }
+  },
+  "Feedback": {
+    "Positive": {
+      "Title": "Keep it up!",
+      "Message": "You still successfully",
+      "BoldMessage": "On diet",
+      "Message2": "Well done!"
+    },
+    "Negative": {
+      "Title": "Ah, that's unfortunate",
+      "Message": "You went",
+      "BoldMessage": "off the diet this time",
+      "Message2": "but keep striving and don't give up!"
+    },
+    "WantToDeleteMeal": "Are you sure you want to delete this meal?",
+    "NoMealsYet": "No meals yet."
+  }
+}

@@ -7,11 +7,13 @@ import { Button } from "@components/Button";
 import { Modal } from "@components/Modal";
 import { mealDeleteById } from "@storage/meal/mealDeleteById";
 import { MealType } from "src/@types/Meal";
+import { useTranslation } from "react-i18next";
 
 export default function Details() {
   const navigation = useNavigation();
   const route  = useRoute();
   const params = route.params as MealType;
+  const { t } = useTranslation(); 
   const type = params.isOnDiet === "YES" ?  'EDIT-ON-DIET' : 'EDIT-OFF-DIET';  
 
   const formattedDate = moment(params.date).format('DD/MM/YYYY HH:mm');
@@ -27,7 +29,7 @@ export default function Details() {
 
   return (
     <Container type={type} edges={["top", "left", "right"]}>
-      <Header title="Refeição" />
+      <Header title={t('Common:Meal')} />
       <Card>
         <ContainerItem style={{ marginTop: 16 }}>
           <Text fontFamily="BOLD" fontSize="XL">
@@ -37,36 +39,38 @@ export default function Details() {
         </ContainerItem>
         <ContainerItem>
           <Text fontFamily="BOLD" fontSize="SM">
-            Data e hora
+          {t('Forms:DateAndTime')}
           </Text>
           <Text>{formattedDate}</Text>
         </ContainerItem>
         <Tag>
           <Dot isOnDiet={params.isOnDiet}/>
           <Text fontSize="SM">
-            {params.isOnDiet === "YES" ? "dentro da dieta" : "fora da dieta" }
+            {params.isOnDiet === "YES" ? t('Common:OnDiet') :t('Common:OffDiet') }
             </Text>
         </Tag>
         <EndBox>
           <Button
             Icon="PencilSimpleLine"
-            title="Editar refeição"
+            title={t('Button:Meal.Edit')}
             fullWidth
             onPress={handleEditMeal}
           />
           <Button
             type="OUTLINE"
             Icon="Trash"
-            title="Excluir refeição"
+            title={t('Button:Meal.Delete')}
             fullWidth
             onPress={handleDeleteMeal}
           />
         </EndBox>
       </Card>
       <Modal
-        title={"Deseja realmente excluir o registro da refeição?"}
+        title={t('Feedback:WantToDeleteMeal')}
         visible={false}
         transparent
+        ConfirmButtonTitle={t('Button:DeleteConfirmation')}
+        CancelButtonTitle={t('Button:Cancel')}
       />
     </Container>
   );
