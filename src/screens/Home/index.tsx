@@ -6,6 +6,7 @@ import MaskedView from "@react-native-masked-view/masked-view";
 import { useTheme } from "styled-components/native";
 import { SectionList } from "react-native";
 import { useTranslation } from "react-i18next";
+import Toast from 'react-native-toast-message';
 
 import { Container, Header, Profile, Box } from "./styles";
 
@@ -45,16 +46,25 @@ export default function Home() {
       const data = await mealFindAll();
       setMeals(data);
     } catch (error) {
-      console.log(error);
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: t('Feedback:Error'),
+        autoHide: false,
+      });
     }
   }
   async function fetchPercentage() {
     try {
       const data = await mealGetSuccessPercentage();
-      console.log(data);
       setPercentage(data ?? 0);
     } catch (error) {
-      console.log(error);
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: t('Feedback:Error'),
+        autoHide: false,
+      });
     }
   }
 
@@ -135,6 +145,7 @@ export default function Home() {
           )}
         />
       </MaskedView>
+      <Toast/>
     </Container>
   );
 }

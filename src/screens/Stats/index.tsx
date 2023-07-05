@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { SharedElement } from "react-navigation-shared-element";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useEffect, useCallback } from "react";
+import Toast from 'react-native-toast-message';
 
 import { Container, PercentContainer, RowBox, Card } from "./styles";
 
@@ -28,7 +28,12 @@ export default function Stats() {
       const data = await mealGetStats();
       setStats(data);
     } catch (error) {
-     // console.log(error);
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: t('Feedback:Error'),
+        autoHide: false,
+      });
     }
   }
   useEffect(

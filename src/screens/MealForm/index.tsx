@@ -4,6 +4,8 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { useForm, Controller } from "react-hook-form";
 import uuid from 'react-native-uuid';
 import { useTranslation } from "react-i18next";
+import Toast from 'react-native-toast-message';
+
 import { Container, Card, RowBox, EndBox } from "./styles";
 
 import { MealType } from "src/@types/Meal";
@@ -73,7 +75,12 @@ export function MealForm() {
       params.type === "NEW" ? await mealCreate(data) : await mealUpdate(data);
       navigation.navigate("Feedback", { isOnDiet: data.isOnDiet });
     } catch (error) {
-      console.log(error);
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: t('Feedback:Error'),
+        autoHide: false,
+      });
     }
   }
 

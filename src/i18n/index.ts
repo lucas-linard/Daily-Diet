@@ -20,8 +20,6 @@ export const resources = {
  const locales = getLocales();
  const currentLanguage = locales[0].languageCode;
 
- console.log(locales[1])
-
 i18n.use(initReactI18next).init({
   compatibilityJSON: "v3",
   lng: currentLanguage,

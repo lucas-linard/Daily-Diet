@@ -57,6 +57,7 @@
       "Message2": "but keep striving and don't give up!"
     },
     "WantToDeleteMeal": "Are you sure you want to delete this meal?",
-    "NoMealsYet": "No meals yet."
+    "NoMealsYet": "No meals yet.",
+    "Error" : "Ops... something went wrong. Please try again."
   }
 }

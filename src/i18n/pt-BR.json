@@ -57,7 +57,8 @@
         "Message2": "dessa vez, mas continue se esforçando e não desista!"
       },
       "WantToDeleteMeal": "Deseja realmente excluir o registro da refeição?",
-      "NoMealsYet": "Que tal cadastrar a sua primeira refeição e iniciar a sua jornada?"  
+      "NoMealsYet": "Que tal cadastrar a sua primeira refeição e iniciar a sua jornada?",
+      "Error" : "Opa... Algo deu errado. Tente novamente."
     }
   }
   
