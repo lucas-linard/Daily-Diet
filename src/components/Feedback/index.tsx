@@ -11,8 +11,7 @@ import Svg, {
 
 const Positive = (props: SvgProps) => (
   <Svg
-    width={224}
-    height={288}
+    viewBox="0 0 224 288"
     fill="none"
     {...props}
   >
@@ -40,8 +39,7 @@ const Positive = (props: SvgProps) => (
 
 const Negative = (props: SvgProps) => (
   <Svg
-    width={224}
-    height={288}
+  viewBox="0 0 224 288"
     fill="none"
     {...props}
   >

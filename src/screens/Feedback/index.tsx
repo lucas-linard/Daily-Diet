@@ -23,8 +23,8 @@ export default function Feedback() {
       </Text>
       <Text style={{ textAlign: "center" }}>
         {t("Feedback:Positive.Message")}
-        <Text fontFamily="BOLD"> {t("Feedback:Positive.BoldMessage")}</Text> 
-        . {t("Feedback:Positive.Message2")}
+        <Text fontFamily="BOLD"> {t("Feedback:Positive.BoldMessage")}</Text>.{" "}
+        {t("Feedback:Positive.Message2")}
       </Text>
     </>
   );
@@ -32,12 +32,12 @@ export default function Feedback() {
   const NegativeText = () => (
     <>
       <Text fontFamily="BOLD" fontSize="XL2" color="RED_DARK">
-      {t("Feedback:Negative.Title")}
+        {t("Feedback:Negative.Title")}
       </Text>
       <Text style={{ textAlign: "center" }}>
-      {t("Feedback:Negative.Message")}
-        <Text fontFamily="BOLD"> {t("Feedback:Negative.BoldMessage")}</Text>
-        . {t("Feedback:Negative.Message2")}
+        {t("Feedback:Negative.Message")}
+        <Text fontFamily="BOLD"> {t("Feedback:Negative.BoldMessage")}</Text>.{" "}
+        {t("Feedback:Negative.Message2")}
       </Text>
     </>
   );
@@ -46,9 +46,9 @@ export default function Feedback() {
     <Container>
       {params.isOnDiet === "YES" ? <PositiveText /> : <NegativeText />}
       {params.isOnDiet === "YES" ? (
-        <Positive style={{ marginTop: 40 }} /> 
+        <Positive width={224} height={288} style={{ marginTop: 40 }} />
       ) : (
-        <Negative style={{ marginTop: 40 }} />
+        <Negative width={224} height={288} style={{ marginTop: 40 }} />
       )}
       <Button
         title={t("Button:GoToHomePage")}

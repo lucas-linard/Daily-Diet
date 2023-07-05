@@ -18,10 +18,12 @@ import { Percent } from "@components/Percent";
 import { Button } from "@components/Button";
 import { Meal } from "@components/Meal";
 import { useState, useCallback } from "react";
+import moment from "moment";
+import { Banner } from "@components/Banner";
 
 export default function Home() {
   const navigation = useNavigation();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { COLORS } = useTheme();
   const [meals, setMeals] = useState([]);
@@ -36,7 +38,7 @@ export default function Home() {
   }
 
   function handleNewMeal() {
-    navigation.navigate("MealForm", {type: 'NEW'});
+    navigation.navigate("MealForm", { type: "NEW" });
   }
   async function fetchMeals() {
     try {
@@ -49,6 +51,7 @@ export default function Home() {
   async function fetchPercentage() {
     try {
       const data = await mealGetSuccessPercentage();
+      console.log(data);
       setPercentage(data ?? 0);
     } catch (error) {
       console.log(error);
@@ -61,6 +64,7 @@ export default function Home() {
       fetchPercentage();
     }, [])
   );
+
   return (
     <Container
       style={{
@@ -74,13 +78,22 @@ export default function Home() {
         <Logo />
         <Profile source={ProfileImage} />
       </Header>
-      <SharedElement style={{ width: "100%" }} id="percent">
-        <Percent subtitle={t('Common:OnDietPercentage')} percent={percentage} onPress={handleNavigateToStats} />
-      </SharedElement>
+      {percentage != -1 ? (
+        <SharedElement style={{ width: "100%" }} id="percent">
+          <Percent
+            subtitle={t("Common:OnDietPercentage")}
+            percent={percentage}
+            onPress={handleNavigateToStats}
+          />
+        </SharedElement>
+      ) : (
+        <Banner title={t('Common:Welcome')} />
+      )}
+
       <Box style={{ marginTop: 40 }}>
-        <Text>{t('Common:Meals')}</Text>
+        <Text>{t("Common:Meals")}</Text>
         <Button
-          title={t('Common:NewMeal')}
+          title={t("Common:NewMeal")}
           Icon="Plus"
           fullWidth
           onPress={handleNewMeal}
@@ -101,9 +114,9 @@ export default function Home() {
         <SectionList
           sections={meals}
           keyExtractor={(item) => item.id}
-          renderSectionHeader={({ section: { title } }) => (
-            <Text fontFamily="BOLD" fontSize="LG" style={{marginBottom: 8}}>
-              {title}
+          renderSectionHeader={({ section: { day } }) => (
+            <Text fontFamily="BOLD" fontSize="LG" style={{ marginBottom: 8 }}>
+              {moment(day).format("LL")}
             </Text>
           )}
           ItemSeparatorComponent={() => <Box style={{ height: 8 }} />}
@@ -115,7 +128,11 @@ export default function Home() {
               onPress={() => handleNavigateToDetails(item)}
             />
           )}
-          ListEmptyComponent={() => <Text>{t('Feedback:NoMealsYet')}</Text>}
+          ListEmptyComponent={() => (
+            <Text style={{ textAlign: "center" }}>
+              {t("Feedback:NoMealsYet")}
+            </Text>
+          )}
         />
       </MaskedView>
     </Container>

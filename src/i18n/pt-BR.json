@@ -1,0 +1,63 @@
+{
+    "Common": {
+      "Meal": "Refeição",
+      "Meals": "Refeições",
+      "NewMeal": "Nova refeição",
+      "EditMeal": "Editar refeição",
+      "OnDietPercentage": "das refeições dentro da dieta",
+      "Yes": "Sim",
+      "No": "Não",
+      "OnDiet" : "dentro da dieta",
+      "OffDiet" : "fora da dieta",
+      "Welcome" : "Bem-vindo à sua jornada saudável."
+    },
+    "Button": {
+      "GoToHomePage": "Ir para a página inicial",
+      "Meal": {
+        "Save": "Cadastrar refeição",
+        "Edit": "Editar refeição",
+        "Delete": "Excluir refeição" 
+      },
+      "SaveChanges": "Salvar alterações",
+      "Cancel": "Cancelar",
+      "DeleteConfirmation": "Sim, Excluir"
+    },
+    "Stats": {
+      "GeneralStats": "Estatísticas gerais", 
+      "BestStreak": "melhor sequência de pratos dentro da dieta",
+      "Tracked": "refeições registradas",
+      "OnDiet": "refeições dentro da dieta",
+      "OffDiet": "refeições fora da dieta"
+    },
+    "Forms": {
+      "Name": "Nome",
+      "Description": "Descrição",
+      "Date": "Data",
+      "Time": "Hora",
+      "DateAndTime": "Data e hora",
+      "MealType": "Está dentro da dieta?",
+      "Error": {
+        "Name": "Nome é obrigatório",
+        "DateAndTime": "Selecione uma data e hora valida!",
+        "Time": "Hora é obrigatória",
+        "MealType": "O tipo de refeição é obrigatório"
+      }
+    },
+    "Feedback": {
+      "Positive": {
+        "Title": "Continue assim!",
+        "Message": "Você continua",
+        "BoldMessage": "dentro da dieta",
+        "Message2": "Muito bem!"
+      },
+      "Negative": {
+        "Title": "Que pena!",
+        "Message": "Você",
+        "BoldMessage": "saiu da dieta",
+        "Message2": "dessa vez, mas continue se esforçando e não desista!"
+      },
+      "WantToDeleteMeal": "Deseja realmente excluir o registro da refeição?",
+      "NoMealsYet": "Que tal cadastrar a sua primeira refeição e iniciar a sua jornada?"  
+    }
+  }
+  

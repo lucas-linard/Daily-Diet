@@ -17,7 +17,7 @@ export default function Details() {
   const { t } = useTranslation();
 
   const type = params.isOnDiet === "YES" ? "EDIT-ON-DIET" : "EDIT-OFF-DIET";
-  const formattedDate = moment(params.date).format("DD/MM/YYYY HH:mm");
+  const formattedDate = moment(params.date).format("LLL");
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   function handleEditMeal() {

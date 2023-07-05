@@ -8,7 +8,8 @@
     "Yes": "Yes",
     "No": "No",
     "OnDiet" : "On diet",
-    "OffDiet" : "Off diet"
+    "OffDiet" : "Off diet",
+    "Welcome" : "Welcome to your healthy journey."
   },
   "Button": {
     "GoToHomePage": "Go to home page",
