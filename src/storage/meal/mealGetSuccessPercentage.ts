@@ -25,7 +25,7 @@ export async function mealGetSuccessPercentage() {
       return parseFloat(((onDietCount.isOnDietCount / onDietCount.totalItems) * 100).toFixed(2));  
      
     }
-    return 0;
+    return -1;
   } catch (error) {
     throw error;
   }
