@@ -46,9 +46,9 @@ export default function Feedback() {
     <Container>
       {params.isOnDiet === "YES" ? <PositiveText /> : <NegativeText />}
       {params.isOnDiet === "YES" ? (
-        <Negative style={{ marginTop: 40 }} /> 
+        <Positive style={{ marginTop: 40 }} /> 
       ) : (
-        <Positive style={{ marginTop: 40 }} />
+        <Negative style={{ marginTop: 40 }} />
       )}
       <Button
         title={t("Button:GoToHomePage")}

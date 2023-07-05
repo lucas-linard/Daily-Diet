@@ -9,7 +9,7 @@ import Svg, {
 } from "react-native-svg"
 
 
-const Negative = (props: SvgProps) => (
+const Positive = (props: SvgProps) => (
   <Svg
     width={224}
     height={288}
@@ -38,7 +38,7 @@ const Negative = (props: SvgProps) => (
 )
 
 
-const Positive = (props: SvgProps) => (
+const Negative = (props: SvgProps) => (
   <Svg
     width={224}
     height={288}
