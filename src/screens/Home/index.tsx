@@ -109,7 +109,7 @@ export default function Home() {
           onPress={handleNewMeal}
         />
       </Box>
-      <Box style={{ marginTop: 32 }}></Box>
+      <Box style={{ marginTop: 26 }}></Box>
       <MaskedView
         maskElement={
           <LinearGradient
@@ -125,7 +125,7 @@ export default function Home() {
           sections={meals}
           keyExtractor={(item) => item.id}
           renderSectionHeader={({ section: { day } }) => (
-            <Text fontFamily="BOLD" fontSize="LG" style={{ marginBottom: 8 }}>
+            <Text fontFamily="BOLD" fontSize="LG" style={{ marginBottom: 8, marginTop: 16 }}>
               {moment(day).format("LL")}
             </Text>
           )}

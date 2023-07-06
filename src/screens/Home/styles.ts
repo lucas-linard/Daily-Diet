@@ -23,6 +23,10 @@ export const Header = styled.View`
 export const Profile = styled.Image`
     width: 40px;
     height: 40px;
+
+    border-radius: 999px;
+    border-color: ${({ theme }) => theme.COLORS.GRAY300};
+    border-width: 2px;
     `
 
 export const Text = styled.Text`
