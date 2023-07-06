@@ -40,7 +40,8 @@
       "Name": "Name is required",
       "DateAndTime": "Select a valid date and time",
       "Time": "Time is required",
-      "MealType": "Meal type is required"
+      "MealType": "Meal type is required",
+      "Description": "Max length is 200 characters"
     }
   },
   "Feedback": {

@@ -136,7 +136,7 @@ export function MealForm() {
             name="description"
             rules={{
               required: false,
-              maxLength: 100,
+              maxLength: 200,
             }}
             render={({ field: { onChange, value } }) => (
               <Input
@@ -147,6 +147,16 @@ export function MealForm() {
               />
             )}
           />
+          {errors.description && (
+            <Text
+              fontFamily="BOLD"
+              fontSize="SM"
+              color="RED_DARK"
+              style={{ marginTop: -15 }}
+            >
+              {t('Forms:Error.Description')}
+            </Text>
+          )}
 
           <RowBox>
             <Controller

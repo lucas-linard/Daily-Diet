@@ -40,7 +40,8 @@
         "Name": "Nome é obrigatório",
         "DateAndTime": "Selecione uma data e hora valida!",
         "Time": "Hora é obrigatória",
-        "MealType": "O tipo de refeição é obrigatório"
+        "MealType": "O tipo de refeição é obrigatório",
+        "Description": "Comprimento máximo de 200 caracteres"
       }
     },
     "Feedback": {
