@@ -1,9 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { MEAL_COLLECTION } from "@storage/storageConfig";
+import moment from "moment";
 import { MealType } from "src/@types/Meal";
 
 type MealStorageType = {
-  title: string;
+  day: Date;
   data: MealType[];
 };
 
@@ -24,19 +25,28 @@ export async function mealUpdate(meal: MealType) {
     const storedMealsJSON = await AsyncStorage.getItem(MEAL_COLLECTION);
     if (storedMealsJSON) {
       let storedMeals: MealStorageType[] = JSON.parse(storedMealsJSON);
-      const mealSection = meal.date.toLocaleDateString("pt-BR");
+      const mealSection = meal.date;
 
       const indexes = findIndexes(meal.id, storedMeals);
       if (indexes) {
-        if (storedMeals[indexes.sectionIndex].title !== mealSection) {
+        if (
+          !moment(storedMeals[indexes.sectionIndex].day).isSame(
+            moment(mealSection),
+            "day"
+          )
+        ) {
+         
           //deleta o meal ou a section inteira se for o único meal
           storedMeals[indexes.sectionIndex].data.length === 1
-            ? storedMeals.splice(indexes.sectionIndex, 1) //  ✅
-            : storedMeals[indexes.sectionIndex].data.splice(indexes.mealIndex, 1);//  ✅
+            ? storedMeals.splice(indexes.sectionIndex, 1)
+            : storedMeals[indexes.sectionIndex].data.splice(
+                indexes.mealIndex,
+                1
+              );
 
-            // encontra o index da section que o meal deve ser inserido
-          const indexOfSection = storedMeals.findIndex(
-            (item: any) => item.title === mealSection
+          // encontra o index da section que o meal deve ser inserido
+          const indexOfSection = storedMeals.findIndex((item: any) =>
+            moment(item.day).isSame(moment(mealSection), "day")
           );
           //se encontrou a section, insere o meal
           if (indexOfSection !== -1) {
@@ -49,29 +59,33 @@ export async function mealUpdate(meal: MealType) {
             //se não encontrou a section, cria a section e insere o meal
             const indexToInsertSection = storedMeals.findIndex(
               (item) =>
-                new Date(meal.date).getTime() >
-                new Date(
-                  item.title.split("/").reverse().join("-") + "T00:00:00-03:00"
-                ).getTime()
+                new Date(meal.date).getTime() > new Date(item.day).getTime()
             );
             if (indexToInsertSection !== -1) {
               storedMeals.splice(indexToInsertSection, 0, {
-                title: mealSection,
+                day: mealSection,
                 data: [meal],
               });
             } else {
-              storedMeals.push({ title: mealSection, data: [meal] });
+              storedMeals.push({ day: mealSection, data: [meal] });
             }
           }
         } else {
-          storedMeals[indexes.sectionIndex].data.splice(indexes.mealIndex, 1)
+          storedMeals[indexes.sectionIndex].data.splice(indexes.mealIndex, 1);
 
-          const indexToInsert = storedMeals[indexes.sectionIndex].data.findIndex(
-            (item) => new Date(meal.date).getTime() > new Date(item.date).getTime()
+          const indexToInsert = storedMeals[
+            indexes.sectionIndex
+          ].data.findIndex(
+            (item) =>
+              new Date(meal.date).getTime() > new Date(item.date).getTime()
           );
-          if(indexToInsert !== -1){
-            storedMeals[indexes.sectionIndex].data.splice(indexToInsert, 0, meal);
-          } else {   
+          if (indexToInsert !== -1) {
+            storedMeals[indexes.sectionIndex].data.splice(
+              indexToInsert,
+              0,
+              meal
+            );
+          } else {
             storedMeals[indexes.sectionIndex].data.push(meal);
           }
           //storedMeals[indexes.sectionIndex].data[indexes.mealIndex] = meal;
