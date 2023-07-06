@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Daily-Diet",
+    "name": "Daily Diet",
     "slug": "Daily-Diet",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,13 +21,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.lucaslinardsoft.DailyDiet"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-localization"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "4a93ecff-ab57-4417-abaf-20531119803c"
+      }
+    }
   }
 }
