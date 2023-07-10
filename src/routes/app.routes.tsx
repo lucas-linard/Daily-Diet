@@ -6,6 +6,7 @@ import Stats from "@screens/Stats";
 import { MealForm } from "@screens/MealForm";
 import Feedback from "@screens/Feedback";
 import Details from "@screens/Details";
+import Settings from "@screens/Settings";
 
 const { Navigator, Screen } = createSharedElementStackNavigator();
 
@@ -38,6 +39,7 @@ export function AppRoutes() {
       <Screen name="MealForm" component={MealForm} />
       <Screen name="Feedback" component={Feedback} />
       <Screen name="Details" component={Details} />
+      <Screen name="Settings" component={Settings} />
     </Navigator>
   );
 }

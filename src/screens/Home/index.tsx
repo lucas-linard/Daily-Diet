@@ -8,11 +8,10 @@ import { SectionList } from "react-native";
 import { useTranslation } from "react-i18next";
 import Toast from 'react-native-toast-message';
 
-import { Container, Header, Profile, Box } from "./styles";
+import { Container, Header, IconButton, Box } from "./styles";
 
 import { mealFindAll } from "@storage/meal/mealFindAll";
 import { mealGetSuccessPercentage } from "@storage/meal/mealGetSuccessPercentage";
-import ProfileImage from "@assets/Profile.png";
 import { Text } from "@components/Text";
 import { Logo } from "@components/Logo";
 import { Percent } from "@components/Percent";
@@ -21,6 +20,7 @@ import { Meal } from "@components/Meal";
 import { useState, useCallback } from "react";
 import moment from "moment";
 import { Banner } from "@components/Banner";
+import { GearSix } from "phosphor-react-native";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -36,6 +36,9 @@ export default function Home() {
 
   function handleNavigateToDetails(item: any) {
     navigation.navigate("Details", item);
+  }
+  function handleNavigateToSettings() {
+    navigation.navigate("Settings");
   }
 
   function handleNewMeal() {
@@ -86,7 +89,11 @@ export default function Home() {
     >
       <Header>
         <Logo />
-        <Profile source={ProfileImage} />
+        <IconButton
+        onPress={handleNavigateToSettings}
+        >
+        <GearSix size={32} />
+        </IconButton>
       </Header>
       {percentage != -1 ? (
         <SharedElement style={{ width: "100%" }} id="percent">

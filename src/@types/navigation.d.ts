@@ -17,6 +17,7 @@ export declare global {
       Feedback: {
         isOnDiet: isOnDietSelectType;
       };
+      Settings: undefined;
     }
   }
 }

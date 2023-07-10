@@ -1,4 +1,3 @@
-import { SectionList } from "react-native";
 import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
@@ -41,3 +40,11 @@ export const Box = styled.View`
     width: 100%;
     gap: 8px;
 `;
+
+export const IconButton = styled.TouchableOpacity`
+    width: 40px;
+    height: 40px;
+   
+    justify-content: center;
+    align-items: center;
+    `;
