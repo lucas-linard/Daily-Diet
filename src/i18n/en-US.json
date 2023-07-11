@@ -9,7 +9,10 @@
     "No": "No",
     "OnDiet" : "On diet",
     "OffDiet" : "Off diet",
-    "Welcome" : "Welcome to your healthy journey."
+    "Welcome" : "Welcome to your healthy journey.",
+    "Settings": "Settings",
+    "Language": "Language",
+    "PrivacyPolicys": "Read Privacy Policy terms"
   },
   "Button": {
     "GoToHomePage": "Go to home page",
@@ -60,5 +63,9 @@
     "WantToDeleteMeal": "Are you sure you want to delete this meal?",
     "NoMealsYet": "No meals yet.",
     "Error" : "Ops... something went wrong. Please try again."
+  },
+  "langCodes": {
+    "en": "English",
+    "pt": "Português"
   }
 }

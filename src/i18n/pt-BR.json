@@ -9,7 +9,10 @@
       "No": "Não",
       "OnDiet" : "dentro da dieta",
       "OffDiet" : "fora da dieta",
-      "Welcome" : "Bem-vindo à sua jornada saudável."
+      "Welcome" : "Bem-vindo à sua jornada saudável.",
+      "Settings": "Configurações",
+      "Language": "Idioma",
+      "PrivacyPolicys": "Ler termos de privacidade"
     },
     "Button": {
       "GoToHomePage": "Ir para a página inicial",
@@ -60,6 +63,10 @@
       "WantToDeleteMeal": "Deseja realmente excluir o registro da refeição?",
       "NoMealsYet": "Que tal cadastrar a sua primeira refeição e iniciar a sua jornada?",
       "Error" : "Opa... Algo deu errado. Tente novamente."
+    },
+    "langCodes": {
+      "en": "English",
+      "pt": "Português"
     }
   }
   

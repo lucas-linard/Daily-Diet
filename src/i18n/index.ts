@@ -2,8 +2,6 @@ import i18n from "i18next";
 
 import { initReactI18next } from "react-i18next";
 
-
-
 import pt_BR from "./pt-BR.json";
 import en_US from "./en-US.json";
 import moment from "moment";
@@ -23,6 +21,7 @@ export const resources = {
 i18n.use(initReactI18next).init({
   compatibilityJSON: "v3",
   lng: currentLanguage,
+  fallbackLng: ["en", "pt"],
   resources,
   react: {
     useSuspense: false,

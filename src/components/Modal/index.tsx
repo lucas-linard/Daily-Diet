@@ -35,8 +35,9 @@ export function Modal({ title, onCancel, onConfirm, ConfirmButtonTitle, CancelBu
             </Text>
           </ModalHeader>
           <ModalOptions>
-            <Button type="OUTLINE" title={CancelButtonTitle} onPress={onCancel} />
-            <Button title={ConfirmButtonTitle} onPress={onConfirm} />
+            {/* <Button type="OUTLINE" title={CancelButtonTitle} onPress={onCancel} />
+            <Button title={ConfirmButtonTitle} onPress={onConfirm} /> */}
+            {rest.children}
           </ModalOptions>
         </ModalContainer>
       </ModalBackground>
