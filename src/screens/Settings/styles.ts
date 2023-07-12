@@ -1,11 +1,8 @@
 import styled from "styled-components/native";
-import { FlatList } from "react-native";
-
-export const Container = styled.SafeAreaView`
+import { SafeAreaView } from "react-native-safe-area-context";
+export const Container = styled(SafeAreaView)`
   flex: 1;
   /* justify-content: center; */
-  padding-left: 24px;
-  padding-right: 24px;
   align-items: center;
 `;
 
@@ -15,6 +12,8 @@ export const Header = styled.View`
   align-items: center;
 
   flex-direction: row;
+
+  margin-bottom: 24px;
 `;
 
 export const OptionButton = styled.TouchableOpacity`

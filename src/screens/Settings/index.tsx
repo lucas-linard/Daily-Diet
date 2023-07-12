@@ -23,11 +23,11 @@ export default function Settings() {
   });
 
   const settings = [
-    {
-      title: t("Common:Language"),
-      options: languages,
-      fun: () => {},
-    },
+    // {
+    //   title: t("Common:Language"),
+    //   options: languages,
+    //   fun: () => {},
+    // },
     {
       title: t("Common:PrivacyPolicys"),
       options: undefined,
@@ -37,7 +37,7 @@ export default function Settings() {
         ),
     },
   ];
-  console.log(languages);
+
   return (
     <Container>
       <Header>
